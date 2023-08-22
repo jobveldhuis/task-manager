@@ -26,7 +26,7 @@
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true,
-      "tsConfigPaths": true
+      "tsconfigPaths": true
     }
   }
 }
