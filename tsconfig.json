@@ -4,7 +4,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/ui/*": ["components/ui/*"]
+      "@/ui/*": ["components/ui/*"],
+      "@/util/*": ["util/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
