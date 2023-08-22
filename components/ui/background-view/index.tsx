@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
-import Colors from "../../constants/Colors";
+import Colors from "../../../constants/Colors";
 
 type BackgroundViewProps = {
   children: ReactNode;

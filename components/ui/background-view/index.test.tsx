@@ -1,4 +1,4 @@
-import { BackgroundView } from "./BackgroundView";
+import { BackgroundView } from "./index";
 import { View, Text } from "react-native";
 import { render, screen } from "@testing-library/react-native";
 
