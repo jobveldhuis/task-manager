@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet } from "react-native";
-import Colors from "../../../constants/Colors";
+import { COLORS } from "@/util/colors.const";
 
 type BackgroundViewProps = {
   children: ReactNode;
@@ -12,8 +12,8 @@ export function BackgroundView({ children }: BackgroundViewProps): JSX.Element {
     <LinearGradient
       style={styles.container}
       colors={[
-        Colors.backgroundGradient.primary,
-        Colors.backgroundGradient.secondary,
+        COLORS.backgroundGradient.primary,
+        COLORS.backgroundGradient.secondary,
       ]}
       testID="background"
     >
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     paddingHorizontal: 25,
-    paddingVertical: 150,
+    paddingVertical: 120,
   },
 });
