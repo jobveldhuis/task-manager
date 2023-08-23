@@ -76,6 +76,26 @@ exports[`Text should match snapshots for each variant 4`] = `
 </Text>
 `;
 
+exports[`Text should match snapshots for each variant 5`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+      },
+      {
+        "color": "#fff",
+        "fontWeight": "bold",
+        "textAlign": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
 exports[`Text should match title authParagraph snapshot 1`] = `
 <Text
   style={
