@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should match snapshot 1`] = `
+<View
+  style={
+    [
+      {
+        "alignSelf": "stretch",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
