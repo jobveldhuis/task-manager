@@ -7,7 +7,8 @@ export type IconName =
   | "check-double"
   | "flag-checkered"
   | "list"
-  | "edit";
+  | "edit"
+  | "long-arrow-alt-right";
 
 type IconProps = {
   name: IconName;
