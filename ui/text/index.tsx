@@ -1,14 +1,13 @@
 import { Text as NativeText, StyleSheet, TextStyle } from "react-native";
-import { ReactNode } from "react";
 import { COLORS } from "@/util/colors.const";
 
 type TextProps = {
-  children: ReactNode;
+  children: string;
   variant?: (typeof variants)[number];
   style?: AllowedTextStyle;
 };
 
-export const variants = ["paragraph", "blackParagraph", "button"] as const;
+export const variants = ["paragraph", "button", "link"] as const;
 
 type AllowedTextStyle = Pick<TextStyle, "marginBottom">;
 
@@ -30,15 +29,15 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     lineHeight: 22,
-    color: COLORS.primary,
-  },
-  blackParagraph: {
-    lineHeight: 22,
     color: COLORS.secondary,
   },
   button: {
     color: COLORS.button.inverse,
     textAlign: "center",
+    fontWeight: "bold",
+  },
+  link: {
+    color: COLORS.secondary,
     fontWeight: "bold",
   },
 });

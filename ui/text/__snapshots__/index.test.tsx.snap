@@ -38,3 +38,22 @@ exports[`Text should match snapshots for each variant 2`] = `
   Lorem ipsum dolor sit amet
 </Text>
 `;
+
+exports[`Text should match snapshots for each variant 3`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+      },
+      {
+        "color": "#000",
+        "fontWeight": "bold",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
