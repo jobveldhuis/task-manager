@@ -8,25 +8,6 @@ exports[`Text should match snapshots for each variant 1`] = `
         "fontSize": 16,
       },
       {
-        "color": "#343C64",
-        "lineHeight": 22,
-      },
-      undefined,
-    ]
-  }
->
-  Lorem ipsum dolor sit amet
-</Text>
-`;
-
-exports[`Text should match snapshots for each variant 2`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-      },
-      {
         "color": "#000",
         "lineHeight": 22,
       },
@@ -38,7 +19,7 @@ exports[`Text should match snapshots for each variant 2`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 3`] = `
+exports[`Text should match snapshots for each variant 2`] = `
 <Text
   style={
     [
