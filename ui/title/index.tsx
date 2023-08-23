@@ -45,5 +45,6 @@ const styles = StyleSheet.create({
   inline: {
     fontSize: 16,
     fontWeight: "bold",
+    marginBottom: 24,
   },
 });
