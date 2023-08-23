@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should match snapshots for each variant with icon 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "flex": 0,
+        "flexDirection": "row",
+        "gap": 16,
+      },
+      undefined,
+    ]
+  }
+  testID="title-container"
+>
+  <Text />
+  <Text
+    style={
+      {
+        "fontSize": 24,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Lorem ipsum dolor sit amet
+  </Text>
+</View>
+`;
+
+exports[`Title should match snapshots for each variant with icon 2`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "flex": 0,
+        "flexDirection": "row",
+        "gap": 16,
+      },
+      undefined,
+    ]
+  }
+  testID="title-container"
+>
+  <Text />
+  <Text
+    style={
+      {
+        "fontSize": 16,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Lorem ipsum dolor sit amet
+  </Text>
+</View>
+`;
+
+exports[`Title should match snapshots for each variant without icon 1`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 24,
+        "fontWeight": "bold",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Title should match snapshots for each variant without icon 2`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "bold",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;

@@ -8,7 +8,8 @@ exports[`Text should match snapshots for each variant 1`] = `
         "fontSize": 16,
       },
       {
-        "fontWeight": "bold",
+        "color": "#343C64",
+        "lineHeight": 22,
       },
       undefined,
     ]
@@ -26,7 +27,7 @@ exports[`Text should match snapshots for each variant 2`] = `
         "fontSize": 16,
       },
       {
-        "color": "#343C64",
+        "color": "#000",
         "lineHeight": 22,
       },
       undefined,
@@ -45,25 +46,6 @@ exports[`Text should match snapshots for each variant 3`] = `
         "fontSize": 16,
       },
       {
-        "color": "#000",
-        "lineHeight": 22,
-      },
-      undefined,
-    ]
-  }
->
-  Lorem ipsum dolor sit amet
-</Text>
-`;
-
-exports[`Text should match snapshots for each variant 4`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-      },
-      {
         "color": "#fff",
         "fontWeight": "bold",
         "textAlign": "center",
@@ -73,62 +55,5 @@ exports[`Text should match snapshots for each variant 4`] = `
   }
 >
   Lorem ipsum dolor sit amet
-</Text>
-`;
-
-exports[`Text should match snapshots for each variant 5`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-      },
-      {
-        "color": "#fff",
-        "fontWeight": "bold",
-        "textAlign": "center",
-      },
-      undefined,
-    ]
-  }
->
-  Lorem ipsum dolor sit amet
-</Text>
-`;
-
-exports[`Text should match title authParagraph snapshot 1`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-      },
-      {
-        "color": "#000",
-        "lineHeight": 22,
-      },
-      undefined,
-    ]
-  }
->
-  Lorem ipsum dolor sit amet
-</Text>
-`;
-
-exports[`Text should match title snapshot 1`] = `
-<Text
-  style={
-    [
-      {
-        "fontSize": 16,
-      },
-      {
-        "fontWeight": "bold",
-      },
-      undefined,
-    ]
-  }
->
-  Test
 </Text>
 `;
