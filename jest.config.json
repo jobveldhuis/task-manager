@@ -1,7 +1,8 @@
 {
   "preset": "jest-expo",
   "moduleNameMapper": {
-    "@/ui/(.*)": "<rootDir>/components/ui/$1",
+    "@/components/(.*)": "<rootDir>/components/$1",
+    "@/ui/(.*)": "<rootDir>/ui/$1",
     "@/util/(.*)": "<rootDir>/util/$1"
   }
 }

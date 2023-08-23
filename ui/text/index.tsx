@@ -10,8 +10,9 @@ type TextProps = {
 
 export const variants = [
   "title",
+  "inlineTitle",
   "paragraph",
-  "authParagraph",
+  "blackParagraph",
   "button",
 ] as const;
 
@@ -34,13 +35,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  inlineTitle: {
     fontWeight: "bold",
   },
   paragraph: {
     lineHeight: 22,
     color: COLORS.primary,
   },
-  authParagraph: {
+  blackParagraph: {
     lineHeight: 22,
     color: COLORS.secondary,
   },

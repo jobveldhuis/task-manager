@@ -1,4 +1,4 @@
-import { Text, variants } from "@/ui/text/index";
+import { Text, variants } from "./index";
 import { render, screen } from "@testing-library/react-native";
 
 describe("Text", () => {
