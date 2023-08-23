@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TutorialItem should match snapshot 1`] = `
+<View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flex": 0,
+          "flexDirection": "row",
+          "gap": 16,
+        },
+        {
+          "marginBottom": 8,
+        },
+      ]
+    }
+    testID="title-container"
+  >
+    <Text />
+    <Text
+      style={
+        {
+          "fontSize": 24,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Foo is a bar
+    </Text>
+  </View>
+  <Text
+    style={
+      [
+        {
+          "fontSize": 16,
+        },
+        {
+          "color": "#000",
+          "lineHeight": 22,
+        },
+        undefined,
+      ]
+    }
+  >
+    This is a beautiful time to be alive!
+  </Text>
+</View>
+`;
