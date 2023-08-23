@@ -8,13 +8,7 @@ type TextProps = {
   style?: AllowedTextStyle;
 };
 
-export const variants = [
-  "title",
-  "inlineTitle",
-  "paragraph",
-  "blackParagraph",
-  "button",
-] as const;
+export const variants = ["paragraph", "blackParagraph", "button"] as const;
 
 type AllowedTextStyle = Pick<TextStyle, "marginBottom">;
 
@@ -33,13 +27,6 @@ export function Text({
 const styles = StyleSheet.create({
   default: {
     fontSize: 16,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  inlineTitle: {
-    fontWeight: "bold",
   },
   paragraph: {
     lineHeight: 22,
