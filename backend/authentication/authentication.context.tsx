@@ -1,27 +1,34 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { onAuthStateChanged, User } from "@firebase/auth";
-import { authentication } from "./authentication.constant";
+import { authenticationConstant } from "./authentication.constant";
 
 type Context = {
-  user: User;
+  user: User | null;
   isAuthenticated: boolean;
+};
+
+type AuthenticationProviderProps = {
+  children: ReactNode;
 };
 
 const AuthenticationContext = createContext<Context | null>(null);
 
-export function AuthenticationProvider() {
+export function AuthenticationProvider({
+  children,
+}: AuthenticationProviderProps) {
   const [user, setUser] = useState<User | null>(null);
 
-  onAuthStateChanged(authentication, (userValue) => {
+  onAuthStateChanged(authenticationConstant, (userValue) => {
     setUser(userValue);
   });
 
   const isAuthenticated = user != null;
 
-  return {
-    user,
-    isAuthenticated,
-  };
+  return (
+    <AuthenticationContext.Provider value={{ user, isAuthenticated }}>
+      {children}
+    </AuthenticationContext.Provider>
+  );
 }
 
 export function useAuthentication() {
