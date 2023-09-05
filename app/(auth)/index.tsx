@@ -1,4 +1,4 @@
-import { BackgroundView } from "@/ui/background-view";
+import { BackgroundView } from "@/ui/views";
 import { Text } from "@/ui/text";
 import { Button } from "@/ui/button";
 import { router } from "expo-router";

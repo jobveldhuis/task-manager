@@ -1,5 +1,5 @@
 import { Text } from "@/ui/text";
-import { BackgroundView } from "@/ui/background-view";
+import { BackgroundView } from "@/ui/views";
 import { Title } from "@/ui/title";
 
 export function TutorialIntroductionScreen(): JSX.Element {
