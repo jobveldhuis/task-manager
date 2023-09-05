@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { onAuthStateChanged, User } from "@firebase/auth";
-import { authenticationConstant } from "./authentication.constant";
+import { authentication } from "./authentication.constant";
 
 type Context = {
   user: User | null;
@@ -18,7 +18,7 @@ export function AuthenticationProvider({
 }: AuthenticationProviderProps) {
   const [user, setUser] = useState<User | null>(null);
 
-  onAuthStateChanged(authenticationConstant, (userValue) => {
+  onAuthStateChanged(authentication, (userValue) => {
     setUser(userValue);
   });
 
