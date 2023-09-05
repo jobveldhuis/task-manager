@@ -2,6 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { Slot, SplashScreen } from "expo-router";
 import { useEffect } from "react";
+import { AuthenticationProvider } from "../backend/authentication";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -36,5 +37,9 @@ export default function RootLayout() {
     return null;
   }
 
-  return <Slot />;
+  return (
+    <AuthenticationProvider>
+      <Slot />
+    </AuthenticationProvider>
+  );
 }
