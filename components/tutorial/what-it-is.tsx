@@ -2,8 +2,20 @@ import { BackgroundView } from "@/ui/views";
 import { TutorialItem } from "@/components/tutorial/tutorial-item";
 import { Separator } from "@/ui/separator";
 import { StyleSheet } from "react-native";
+import { Button } from "@/ui/button";
+import { useAuthentication } from "@/backend/authentication";
+import { markTutorialAsSeen } from "@/util/mark-tutorial-as-seen";
+import { router } from "expo-router";
 
 export function TutorialWhatItIsScreen(): JSX.Element {
+  const { user } = useAuthentication();
+  const handlePress = async () => {
+    if (user === null) return;
+
+    await markTutorialAsSeen(user.uid);
+    router.push("/(app)/main");
+  };
+
   return (
     <BackgroundView>
       <TutorialItem title="It's a list" icon="list" style={styles.item}>
@@ -25,14 +37,7 @@ export function TutorialWhatItIsScreen(): JSX.Element {
         bit of feedback, using emoji.
       </TutorialItem>
       <Separator style={styles.separator} />
-      <TutorialItem
-        title="That's literally it"
-        icon="flag-checkered"
-        style={styles.item}
-      >
-        Sounds boring, right? Well, getting sh*t done can be a bit boring, but
-        also very, very rewarding.
-      </TutorialItem>
+      <Button title="Let's get started" onPress={handlePress} />
     </BackgroundView>
   );
 }
