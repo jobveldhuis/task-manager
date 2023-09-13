@@ -7,7 +7,7 @@ export default function AppLayout() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      router.push("/(auth)");
+      router.replace("/(auth)");
     }
   }, [isAuthenticated]);
 

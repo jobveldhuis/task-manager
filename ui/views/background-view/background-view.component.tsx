@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "@/ui/linear-gradient";
 import { StyleSheet } from "react-native";
-import { COLORS } from "@/util/colors.const";
 
 type BackgroundViewProps = {
   children: ReactNode;
@@ -9,14 +8,7 @@ type BackgroundViewProps = {
 
 export function BackgroundView({ children }: BackgroundViewProps): JSX.Element {
   return (
-    <LinearGradient
-      style={styles.container}
-      colors={[
-        COLORS.backgroundGradient.primary,
-        COLORS.backgroundGradient.secondary,
-      ]}
-      testID="background"
-    >
+    <LinearGradient style={styles.container} testID="background">
       {children}
     </LinearGradient>
   );

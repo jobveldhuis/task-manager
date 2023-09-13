@@ -7,7 +7,13 @@ type TextProps = {
   style?: AllowedTextStyle;
 };
 
-export const variants = ["paragraph", "button", "link"] as const;
+export const variants = [
+  "paragraph",
+  "button",
+  "link",
+  "menu",
+  "menuSelected",
+] as const;
 
 type AllowedTextStyle = Pick<TextStyle, "marginBottom">;
 
@@ -39,5 +45,16 @@ const styles = StyleSheet.create({
   link: {
     color: COLORS.secondary,
     fontWeight: "bold",
+  },
+  menu: {
+    color: COLORS.inverse,
+    fontSize: 16,
+    fontWeight: "500",
+  },
+  menuSelected: {
+    color: COLORS.inverse,
+    fontSize: 20,
+    textDecorationLine: "underline",
+    fontWeight: "500",
   },
 });

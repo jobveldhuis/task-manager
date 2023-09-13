@@ -6,6 +6,7 @@ import { useAuthentication } from "@/backend/authentication";
 import { useEffect } from "react";
 import { hasSeenTutorial } from "@/util/has-seen-tutorial";
 import { router } from "expo-router";
+import { AppPagination } from "@/components/app-pagination.component";
 
 export default function Main(): JSX.Element {
   const { user } = useAuthentication();
@@ -16,7 +17,7 @@ export default function Main(): JSX.Element {
     const redirectIfNotSeenTutorial = async () => {
       const hasSeen = await hasSeenTutorial(user.uid);
       if (!hasSeen) {
-        router.push("/(app)/tutorial");
+        router.replace("/(app)/tutorial");
       }
     };
 
@@ -24,10 +25,12 @@ export default function Main(): JSX.Element {
   }, [user]);
 
   return (
-    <Swiper loop={false}>
+    <Swiper
+      loop={false}
+      paginationStyle={{ backgroundColor: "red" }}
+      renderPagination={(index) => <AppPagination selectedIndex={index} />}
+    >
       <BackgroundView>
-        {user?.emailVerified !== true && <Text>Please verify your e-mail</Text>}
-
         <Title>Hi there,</Title>
         <Text>
           This app will help you tackle procrastination in a few simple steps.
