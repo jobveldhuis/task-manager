@@ -4,6 +4,7 @@
     "@/components/(.*)": "<rootDir>/components/$1",
     "@/ui/(.*)": "<rootDir>/ui/$1",
     "@/util/(.*)": "<rootDir>/util/$1",
-    "@/backend/(.*)": "<rootDir>/backend/$1"
+    "@/backend/(.*)": "<rootDir>/backend/$1",
+    "@/types/(.*)": "<rootDir>/types/$1"
   }
 }
