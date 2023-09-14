@@ -35,10 +35,4 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     paddingBottom: 40,
   },
-  selected: {
-    color: "red",
-  },
-  item: {
-    color: "white",
-  },
 });
