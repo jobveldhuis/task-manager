@@ -16,7 +16,7 @@ export function Page({ title, children, style }: PageProps) {
       <Title hasBorder style={styles.title}>
         {title}
       </Title>
-      <View style={style}>{children}</View>
+      <View style={[styles.container, style]}>{children}</View>
     </BackgroundView>
   );
 }
@@ -29,5 +29,9 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingBottom: 8,
+    marginBottom: 16,
+  },
+  container: {
+    width: "100%",
   },
 });
