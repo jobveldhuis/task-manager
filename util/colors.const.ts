@@ -1,5 +1,5 @@
 export const COLORS = {
-  primary: "#343C64",
+  primary: "#000C49",
   secondary: "#000",
   inverse: "#fff",
   button: {
