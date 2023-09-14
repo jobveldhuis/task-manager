@@ -5,20 +5,20 @@ type AppPaginationProps = {
   selectedIndex: number;
 };
 
-const PAGINATION_ITEMS = ["to-do", "add-new", "settings"];
-
 export function AppPagination({
   selectedIndex,
 }: AppPaginationProps): JSX.Element {
   return (
     <View style={styles.container}>
-      {PAGINATION_ITEMS.map((title, index) => {
-        return (
-          <Text variant={index === selectedIndex ? "menuSelected" : "menu"}>
-            {title}
-          </Text>
-        );
-      })}
+      <Text variant={selectedIndex === 0 ? "menuSelected" : "menu"}>
+        add new
+      </Text>
+      <Text variant={selectedIndex === 1 ? "menuSelected" : "menu"}>
+        to-dos
+      </Text>
+      <Text variant={selectedIndex === 2 ? "menuSelected" : "menu"}>
+        settings
+      </Text>
     </View>
   );
 }
