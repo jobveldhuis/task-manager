@@ -1,12 +1,12 @@
 import Swiper from "react-native-swiper";
-import { BackgroundView } from "@/ui/views";
-import { Text } from "@/ui/text";
-import { Title } from "@/ui/title";
 import { useAuthentication } from "@/backend/authentication";
 import { useEffect } from "react";
 import { hasSeenTutorial } from "@/util/has-seen-tutorial";
 import { router } from "expo-router";
-import { AppPagination } from "@/components/app-pagination.component";
+import { AppPagination } from "@/components/app/app-pagination.component";
+import { TodoList } from "@/components/todos/todo-list.component";
+import { CreateTodo } from "@/components/app/create-todo.component";
+import { Settings } from "@/components/app/settings.component";
 
 export default function Main(): JSX.Element {
   const { user } = useAuthentication();
@@ -27,22 +27,13 @@ export default function Main(): JSX.Element {
   return (
     <Swiper
       loop={false}
+      index={1}
       paginationStyle={{ backgroundColor: "red" }}
       renderPagination={(index) => <AppPagination selectedIndex={index} />}
     >
-      <BackgroundView>
-        <Title>Hi there,</Title>
-        <Text>
-          This app will help you tackle procrastination in a few simple steps.
-          Want to get started?
-        </Text>
-      </BackgroundView>
-      <BackgroundView>
-        <Text>Tes2t</Text>
-      </BackgroundView>
-      <BackgroundView>
-        <Text>Test3</Text>
-      </BackgroundView>
+      <CreateTodo />
+      <TodoList />
+      <Settings />
     </Swiper>
   );
 }
