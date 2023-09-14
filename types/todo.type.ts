@@ -10,20 +10,13 @@ type BaseTodo = {
 export type CompletedTodo = BaseTodo & {
   completionDate: Date;
   isCompleted: true;
-  rating?: Rating;
+  rating: Rating | null;
 };
 
 export type UnfinishedTodo = BaseTodo & {
   isCompleted: false;
+  rating: null;
+  completionDate: null;
 };
 
 export type Todo = CompletedTodo | UnfinishedTodo;
-
-export type TodoDto = {
-  id: string;
-  title: string;
-  description: string;
-  expectedCompletionDate: string;
-  completionDate?: string;
-  rating?: Rating;
-};
