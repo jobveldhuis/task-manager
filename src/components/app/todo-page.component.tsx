@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import { User } from "firebase/auth";
 import { Todo } from "@/types/todo.type";
@@ -24,12 +24,12 @@ export function TodoPage({
   markTodoUnfinished,
 }: TodoPageProps): JSX.Element {
   const [completedTodo, setCompletedTodo] = useState<Todo | null>(null);
-
-  const completedTodos = todos.filter((item) => item.completionDate != null);
-  const unfinishedTodos = todos.filter((item) => item.completionDate == null);
+  const sortedTodos = useMemo(
+    () => todos.sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted)),
+    [todos],
+  );
 
   const shouldShowModal = completedTodo !== null;
-  const shouldShowCompletedToday = completedTodos.length > 0;
 
   return (
     <>
@@ -47,17 +47,22 @@ export function TodoPage({
         <View style={styles.container}>
           <View style={styles.todo}>
             <Title hasBorder style={styles.title}>
-              Things you could pick up
+              What to do today?
             </Title>
-            {unfinishedTodos.length > 0 ? (
+            {sortedTodos.length > 0 ? (
               <FlatList
-                data={unfinishedTodos}
+                data={sortedTodos}
                 renderItem={({ item }) => (
                   <TodoItem
                     data={item}
+                    style={styles.item}
                     onPress={async () => {
-                      setCompletedTodo(item);
-                      await markTodoCompleted(item.id);
+                      if (item.isCompleted) {
+                        await markTodoUnfinished(item.id);
+                      } else {
+                        setCompletedTodo(item);
+                        await markTodoCompleted(item.id);
+                      }
                     }}
                   />
                 )}
@@ -67,24 +72,6 @@ export function TodoPage({
               <Text>You have no pending to-dos! Amazing!</Text>
             )}
           </View>
-
-          {shouldShowCompletedToday && (
-            <View style={styles.completed}>
-              <Title hasBorder style={styles.title}>
-                Completed today
-              </Title>
-              <FlatList
-                data={completedTodos}
-                renderItem={({ item }) => (
-                  <TodoItem
-                    data={item}
-                    onPress={() => markTodoUnfinished(item.id)}
-                  />
-                )}
-                keyExtractor={(item) => item.id}
-              />
-            </View>
-          )}
         </View>
       </Page>
     </>
@@ -100,16 +87,9 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   todo: {
-    minHeight: "50%",
-    flexBasis: "auto",
-    flexShrink: 1,
-    flexGrow: 0,
+    height: "100%",
   },
-  completed: {
-    flexBasis: "50%",
-  },
-  list: {
-    display: "flex",
-    gap: 10,
+  item: {
+    marginBottom: 10,
   },
 });

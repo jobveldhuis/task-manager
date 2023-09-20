@@ -1,23 +1,31 @@
-import { GestureResponderEvent, StyleSheet, View } from "react-native";
+import {
+  GestureResponderEvent,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from "react-native";
 import type { Todo } from "@/types/todo.type";
 import { Text } from "@/ui/text";
 import { Checkbox } from "@/ui/checkbox";
+import { FilteredStyleProps } from "@/util/filtered-style-props.type";
 
 type TodoItemProps = {
   data: Todo;
+  style?: FilteredStyleProps<ViewStyle>;
   onPress: (event: GestureResponderEvent) => void;
 };
 
 export function TodoItem({
   onPress: handlePress,
+  style,
   data,
 }: TodoItemProps): JSX.Element {
   const { isCompleted, title } = data;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Checkbox isChecked={isCompleted} onPress={handlePress} />
-      <Text>{title}</Text>
+      <Text variant={isCompleted ? "strikethrough" : "paragraph"}>{title}</Text>
     </View>
   );
 }
