@@ -1,5 +1,5 @@
 import { Text as NativeText, StyleSheet, TextStyle } from "react-native";
-import { COLORS } from "../../util/colors.const";
+import { COLORS } from "@/util/colors.const";
 
 type TextProps = {
   children: string;
@@ -9,6 +9,7 @@ type TextProps = {
 
 export const variants = [
   "paragraph",
+  "strikethrough",
   "button",
   "link",
   "menu",
@@ -65,5 +66,9 @@ const styles = StyleSheet.create({
   },
   light: {
     fontWeight: "normal",
+  },
+  strikethrough: {
+    textDecorationLine: "line-through",
+    textDecorationStyle: "solid",
   },
 });
