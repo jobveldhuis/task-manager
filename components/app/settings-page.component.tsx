@@ -4,7 +4,7 @@ import { Text } from "@/ui/text";
 import { signOut } from "@/backend/authentication";
 import { StyleSheet, View } from "react-native";
 
-export function Settings(): JSX.Element {
+export function SettingsPage(): JSX.Element {
   return (
     <Page title="Settings">
       <View style={styles.intro}>
