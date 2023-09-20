@@ -5,7 +5,7 @@ import { COLORS } from "@/util/colors.const";
 import { ReactNode } from "react";
 
 type PageProps = {
-  title: string;
+  title?: string;
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
 };
@@ -13,9 +13,11 @@ type PageProps = {
 export function Page({ title, children, style }: PageProps) {
   return (
     <BackgroundView>
-      <Title hasBorder style={styles.title}>
-        {title}
-      </Title>
+      {title !== undefined && (
+        <Title hasBorder style={styles.title}>
+          {title}
+        </Title>
+      )}
       <View style={[styles.container, style]}>{children}</View>
     </BackgroundView>
   );
