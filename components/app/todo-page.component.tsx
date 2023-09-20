@@ -6,15 +6,20 @@ import { Title } from "@/ui/title";
 import { FeedbackModal } from "@/components/todos/feedback-modal.component";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Text } from "@/ui/text";
+import { Rating } from "@/types/rating.type";
+import { setRating } from "@/backend/database/set-rating";
+import { User } from "@firebase/auth";
 
 type TodoPageProps = {
   todos: Todo[];
+  user: User;
   markTodoCompleted: (id: string) => Promise<void>;
   markTodoUnfinished: (id: string) => Promise<void>;
 };
 
 export function TodoPage({
   todos,
+  user,
   markTodoCompleted,
   markTodoUnfinished,
 }: TodoPageProps): JSX.Element {
@@ -31,7 +36,10 @@ export function TodoPage({
       {shouldShowModal && (
         <FeedbackModal
           todo={completedTodo}
-          closeModal={() => setCompletedTodo(null)}
+          onFeedbackClick={async (rating: Rating) => {
+            await setRating(rating, user.uid, completedTodo.id);
+            setCompletedTodo(null);
+          }}
         />
       )}
 

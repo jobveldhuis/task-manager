@@ -1,18 +1,15 @@
 import { Pressable, StyleSheet, View } from "react-native";
-import { ratingValues } from "@/types/rating.type";
+import { Rating, ratingValues } from "@/types/rating.type";
 import { mapRatingToEmoji } from "@/util/map-rating-to-emoji";
 import { Text } from "@/ui/text";
-import { setRating } from "@/backend/database/set-rating";
 import { useAuthentication } from "@/backend/authentication";
 
 type FeedbackButtonsProps = {
-  closeModal: () => void;
-  todoId: string;
+  onButtonPress: (rating: Rating) => void;
 };
 
 export function FeedbackButtons({
-  closeModal,
-  todoId,
+  onButtonPress: handlePress,
 }: FeedbackButtonsProps): JSX.Element {
   const { user } = useAuthentication();
 
@@ -25,9 +22,8 @@ export function FeedbackButtons({
       {ratingValues.map((value) => (
         <Pressable
           key={value}
-          onPress={async () => {
-            await setRating(value, user.uid, todoId);
-            closeModal();
+          onPress={() => {
+            handlePress(value);
           }}
         >
           <Text variant="xl">{mapRatingToEmoji(value)}</Text>

@@ -5,15 +5,16 @@ import { Todo } from "@/types/todo.type";
 import { calculateTimeDifference } from "@/util/calculate-time-difference";
 import { StyleSheet, View } from "react-native";
 import { FeedbackButtons } from "@/components/todos/feedback-buttons.component";
+import { Rating } from "@/types/rating.type";
 
 type FeedbackModalProps = {
   todo: Todo;
-  closeModal: () => void;
+  onFeedbackClick: (rating: Rating) => void;
 };
 
 export function FeedbackModal({
   todo,
-  closeModal,
+  onFeedbackClick: handleFeedbackClick,
 }: FeedbackModalProps): JSX.Element | null {
   const now = new Date();
   const timeDelta = calculateTimeDifference(todo.createdAt, now);
@@ -42,7 +43,7 @@ export function FeedbackModal({
         <Title variant="modal" style={styles.title}>
           HOW DOES THAT MAKE YOU FEEL?
         </Title>
-        <FeedbackButtons closeModal={closeModal} todoId={todo.id} />
+        <FeedbackButtons onButtonPress={handleFeedbackClick} />
       </View>
     </Modal>
   );
