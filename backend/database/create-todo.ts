@@ -12,7 +12,8 @@ export async function createTodo(userId: string, data: NewTodo): Promise<void> {
 
   const newTodo = {
     ...data,
-    expectedCompletionDate: data.expectedCompletionDate.toISOString(),
+    expectedCompletionDate: data.expectedCompletionDate,
+    createdAt: new Date(),
     completionDate: null,
     rating: null,
   };
