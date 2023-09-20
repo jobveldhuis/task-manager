@@ -7,7 +7,7 @@ jest.mock("expo-secure-store", () => ({
   getItemAsync: jest.fn(),
 }));
 
-// TypeScript needs to understand these hav been mocked.
+// TypeScript needs to understand these have been mocked.
 const mockedGetter = getItemAsync as jest.Mock;
 const mockedSetter = setItemAsync as jest.Mock;
 
