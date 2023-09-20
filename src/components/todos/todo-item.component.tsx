@@ -1,7 +1,7 @@
 import { GestureResponderEvent, StyleSheet, View } from "react-native";
-import { Text } from "../../ui/text";
-import { Checkbox } from "../../ui/checkbox";
-import type { Todo } from "../../types/todo.type";
+import type { Todo } from "@/types/todo.type";
+import { Text } from "@/ui/text";
+import { Checkbox } from "@/ui/checkbox";
 
 type TodoItemProps = {
   data: Todo;

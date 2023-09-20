@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { User } from "firebase/auth";
 import { Todo } from "@/types/todo.type";
 import { Title } from "@/ui/title";
@@ -44,27 +44,28 @@ export function TodoPage({
       )}
 
       <Page>
-        <View style={{ maxHeight: "100%" }}>
+        <View style={styles.container}>
           <View style={styles.todo}>
             <Title hasBorder style={styles.title}>
               Things you could pick up
             </Title>
-            <ScrollView>
-              {unfinishedTodos.length > 0 ? (
-                unfinishedTodos.map((todo) => (
+            {unfinishedTodos.length > 0 ? (
+              <FlatList
+                data={unfinishedTodos}
+                renderItem={({ item }) => (
                   <TodoItem
-                    key={todo.id}
-                    data={todo}
-                    onPress={() => {
-                      setCompletedTodo(todo);
-                      return markTodoCompleted(todo.id);
+                    data={item}
+                    onPress={async () => {
+                      setCompletedTodo(item);
+                      await markTodoCompleted(item.id);
                     }}
                   />
-                ))
-              ) : (
-                <Text>You have no pending to-dos! Amazing!</Text>
-              )}
-            </ScrollView>
+                )}
+                keyExtractor={(item) => item.id}
+              />
+            ) : (
+              <Text>You have no pending to-dos! Amazing!</Text>
+            )}
           </View>
 
           {shouldShowCompletedToday && (
@@ -72,15 +73,16 @@ export function TodoPage({
               <Title hasBorder style={styles.title}>
                 Completed today
               </Title>
-              <ScrollView>
-                {completedTodos.map((todo) => (
+              <FlatList
+                data={completedTodos}
+                renderItem={({ item }) => (
                   <TodoItem
-                    key={todo.id}
-                    data={todo}
-                    onPress={() => markTodoUnfinished(todo.id)}
+                    data={item}
+                    onPress={() => markTodoUnfinished(item.id)}
                   />
-                ))}
-              </ScrollView>
+                )}
+                keyExtractor={(item) => item.id}
+              />
             </View>
           )}
         </View>
@@ -90,16 +92,24 @@ export function TodoPage({
 }
 
 const styles = StyleSheet.create({
+  container: {
+    maxHeight: "100%",
+  },
   title: {
     paddingBottom: 8,
     marginBottom: 16,
   },
   todo: {
+    minHeight: "50%",
     flexBasis: "auto",
     flexShrink: 1,
     flexGrow: 0,
   },
   completed: {
     flexBasis: "50%",
+  },
+  list: {
+    display: "flex",
+    gap: 10,
   },
 });
