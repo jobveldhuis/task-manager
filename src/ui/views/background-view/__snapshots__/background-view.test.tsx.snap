@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackgroundView should match snapshot 1`] = `
+<ViewManagerAdapter_ExpoLinearGradient
+  colors={
+    [
+      4293223456,
+      4281842398,
+    ]
+  }
+  style={
+    {
+      "alignItems": "flex-start",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "paddingHorizontal": 32,
+      "paddingVertical": 120,
+    }
+  }
+  testID="background"
+>
+  <View>
+    <Text>
+      Test
+    </Text>
+  </View>
+</ViewManagerAdapter_ExpoLinearGradient>
+`;

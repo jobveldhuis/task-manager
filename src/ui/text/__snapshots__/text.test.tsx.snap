@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should match snapshots for each variant 1`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#000",
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 2`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#fff",
+        "fontWeight": "bold",
+        "textAlign": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 3`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#000",
+        "fontWeight": "bold",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 4`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#fff",
+        "fontSize": 16,
+        "fontWeight": "500",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 5`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#fff",
+        "fontSize": 20,
+        "fontWeight": "500",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 6`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "fontSize": 42,
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 7`] = `
+<Text
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
