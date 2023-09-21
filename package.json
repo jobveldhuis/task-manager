@@ -5,9 +5,10 @@
   "scripts": {
     "start": "expo start",
     "test": "jest --watchAll",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:types",
     "lint:prettier": "prettier --check ./src/ --cache-location ./.cache/.prettier",
-    "lint:eslint": "eslint ./src/ --cache-location ./.cache/.eslint"
+    "lint:eslint": "eslint ./src/ --cache-location ./.cache/.eslint",
+    "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
