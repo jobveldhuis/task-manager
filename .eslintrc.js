@@ -1,6 +1,12 @@
 module.exports = {
   root: true,
-  extends: ["universe/native", "airbnb", "airbnb/hooks", "airbnb-typescript"],
+  extends: [
+    "universe/native",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "prettier",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
@@ -57,8 +63,5 @@ module.exports = {
 
     // This clashes with the way some links in routers are built for Expo.
     "jsx-a11y/anchor-is-valid": "off",
-
-    // Prefer double-quotes
-    "@typescript-eslint/quotes": ["error", "double"],
   },
 };
