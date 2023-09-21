@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, RefreshControl, StyleSheet, View } from "react-native";
 import { User } from "firebase/auth";
 import { Todo } from "@/types/todo.type";
 import { Title } from "@/ui/title";
@@ -12,6 +12,8 @@ import { FeedbackModal } from "../todos/feedback-modal.component";
 
 type TodoPageProps = {
   todos: Todo[];
+  isRefreshing: boolean;
+  onRefresh: () => void;
   user: User;
   markTodoCompleted: (id: string) => Promise<void>;
   markTodoUnfinished: (id: string) => Promise<void>;
@@ -19,6 +21,8 @@ type TodoPageProps = {
 
 export function TodoPage({
   todos,
+  isRefreshing,
+  onRefresh: handleRefresh,
   user,
   markTodoCompleted,
   markTodoUnfinished,
@@ -67,6 +71,12 @@ export function TodoPage({
                   />
                 )}
                 keyExtractor={(item) => item.id}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={isRefreshing}
+                    onRefresh={handleRefresh}
+                  />
+                }
               />
             ) : (
               <Text>You have no pending to-dos! Amazing!</Text>

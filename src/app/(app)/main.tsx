@@ -1,9 +1,8 @@
 import Swiper from "react-native-swiper";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { router } from "expo-router";
 import { useAuthentication } from "@/backend/authentication";
 import { hasSeenTutorial } from "@/util/has-seen-tutorial";
-import { FullPageSpinner } from "@/ui/full-page-spinner";
 import {
   createTodo,
   getTodosByUser,
@@ -27,12 +26,19 @@ export default function Main(): JSX.Element | null {
 
   const paginationRef = useRef<Swiper>(null);
 
-  useEffect(() => {
+  const fetchTodos = useCallback(async () => {
     if (user?.uid == null) return;
 
-    getTodosByUser(user.uid).then(setTodos);
+    setIsLoading(true);
+    const newTodos = await getTodosByUser(user.uid);
+    setTodos(newTodos);
     setIsLoading(false);
-  }, [isActive, user]);
+  }, [user]);
+
+  // Refetch todos when user changes or when app comes back to active state.
+  useEffect(() => {
+    fetchTodos();
+  }, [fetchTodos, isActive]);
 
   useEffect(() => {
     const redirectIfNotSeenTutorial = async () => {
@@ -91,9 +97,7 @@ export default function Main(): JSX.Element | null {
     }
   };
 
-  return isLoading ? (
-    <FullPageSpinner />
-  ) : (
+  return (
     <Swiper
       loop={false}
       ref={paginationRef}
@@ -116,6 +120,8 @@ export default function Main(): JSX.Element | null {
       />
       <TodoPage
         todos={todos}
+        onRefresh={fetchTodos}
+        isRefreshing={isLoading}
         user={user}
         markTodoCompleted={markTodoCompleted}
         markTodoUnfinished={markTodoUnfinished}
