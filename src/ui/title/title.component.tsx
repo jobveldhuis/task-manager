@@ -1,8 +1,8 @@
 import { StyleSheet, TextStyle, View, ViewStyle, Text } from "react-native";
 import { ReactNode } from "react";
-import { FilteredStyleProps } from "../../util/filtered-style-props.type";
+import { FilteredStyleProps } from "@/util/filtered-style-props.type";
+import { COLORS } from "@/util/colors.const";
 import { IconName, Icon } from "../icon";
-import { COLORS } from "../../util/colors.const";
 
 type TitleProps = {
   children: ReactNode;
@@ -32,7 +32,7 @@ export function Title({
   return (
     <View style={containerStyles} testID="title-container">
       {hasIcon && <Icon name={icon} />}
-      <Text style={styles[variant]}>{children}</Text>
+      <Text style={[styles.default, styles[variant]]}>{children}</Text>
     </View>
   );
 }
@@ -56,8 +56,6 @@ const styles = StyleSheet.create({
   },
   inline: {
     fontSize: 16,
-    fontWeight: "bold",
-    color: COLORS.secondary,
   },
   modal: {
     fontSize: 14,

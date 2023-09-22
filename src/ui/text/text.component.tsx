@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     fontWeight: "600",
+    color: COLORS.primary,
   },
   paragraph: {
     lineHeight: 22,
-    color: COLORS.secondary,
   },
   button: {
     color: COLORS.button.inverse,

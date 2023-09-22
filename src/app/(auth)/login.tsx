@@ -49,9 +49,7 @@ export default function Login() {
     <BackgroundView>
       <KeyboardDismissalView>
         <View style={styles.container}>
-          <Title style={styles.title} variant="inline">
-            Welcome back,
-          </Title>
+          <Title style={styles.title}>Welcome back,</Title>
           <Text style={styles.text} variant="light">
             Time to get back on track? All your saved to-dos will be waiting on
             the other side.

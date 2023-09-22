@@ -49,9 +49,7 @@ export default function SignUp() {
     <BackgroundView>
       <KeyboardDismissalView>
         <View style={styles.container}>
-          <Title variant="inline" style={styles.title}>
-            Signing up is easy!
-          </Title>
+          <Title style={styles.title}>Signing up is easy!</Title>
           <Text style={styles.text} variant="light">
             Ready to change your life? We need some details so we can safely
             store your to-dos.

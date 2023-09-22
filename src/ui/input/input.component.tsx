@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, TextInputProps, View } from "react-native";
-import { COLORS } from "../../util/colors.const";
+import { COLORS } from "@/util/colors.const";
 import { Text } from "../text";
 
 type InputType = "text" | "password" | "new-password" | "email";
@@ -56,7 +56,8 @@ export function Input({
 
 const styles = StyleSheet.create({
   input: {
-    borderColor: COLORS.secondary,
+    borderColor: COLORS.primary,
+    color: COLORS.primary,
     borderWidth: 1,
     width: "100%",
     paddingHorizontal: 4,
