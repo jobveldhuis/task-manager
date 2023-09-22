@@ -16,6 +16,20 @@ import {
   AppPagination,
   TodoPage,
 } from "@/components/app";
+import { getStatisticsByUser } from "@/backend/database/get-statistics-by-user";
+import { UserStatistics } from "@/types";
+
+const EMPTY_USER_STATISTICS: UserStatistics = {
+  totalCompleted: 0,
+  totalCreated: 0,
+  totalRatings: {
+    happy: 0,
+    veryHappy: 0,
+    mad: 0,
+    sad: 0,
+    love: 0,
+  },
+};
 
 export default function Main(): JSX.Element | null {
   const { user } = useAuthentication();
@@ -23,6 +37,7 @@ export default function Main(): JSX.Element | null {
 
   const [isLoading, setIsLoading] = useState(true);
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [statistics, setStatistics] = useState(EMPTY_USER_STATISTICS);
 
   const paginationRef = useRef<Swiper>(null);
 
@@ -30,8 +45,13 @@ export default function Main(): JSX.Element | null {
     if (user?.uid == null) return;
 
     setIsLoading(true);
-    const newTodos = await getTodosByUser(user.uid);
+    const [newTodos, updatedStatistics] = await Promise.all([
+      getTodosByUser(user.uid),
+      getStatisticsByUser(user.uid),
+    ]);
+
     setTodos(newTodos);
+    setStatistics(updatedStatistics);
     setIsLoading(false);
   }, [user]);
 
@@ -126,7 +146,7 @@ export default function Main(): JSX.Element | null {
         markTodoCompleted={markTodoCompleted}
         markTodoUnfinished={markTodoUnfinished}
       />
-      <SettingsPage />
+      <SettingsPage statistics={statistics} />
     </Swiper>
   );
 }
