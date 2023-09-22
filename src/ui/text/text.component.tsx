@@ -16,6 +16,7 @@ export const variants = [
   "menuSelected",
   "xl",
   "light",
+  "error",
 ] as const;
 
 type AllowedTextStyle = Pick<TextStyle, "marginBottom">;
@@ -70,5 +71,9 @@ const styles = StyleSheet.create({
   strikethrough: {
     textDecorationLine: "line-through",
     textDecorationStyle: "solid",
+  },
+  error: {
+    color: COLORS.inverse,
+    opacity: 0.75,
   },
 });
