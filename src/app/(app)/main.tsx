@@ -92,11 +92,12 @@ export default function Main(): JSX.Element | null {
 
     try {
       await setCompletedStatus(user.uid, id, true);
-      const updatedStatistics = await getStatisticsByUser(user.uid);
-      setStatistics(updatedStatistics);
     } catch {
       setTodos(current);
     }
+
+    const updatedStatistics = await getStatisticsByUser(user.uid);
+    setStatistics(updatedStatistics);
   };
 
   const markTodoUnfinished = async (id: string) => {
@@ -115,11 +116,12 @@ export default function Main(): JSX.Element | null {
 
     try {
       await setCompletedStatus(user.uid, id, false);
-      const updatedStatistics = await getStatisticsByUser(user.uid);
-      setStatistics(updatedStatistics);
     } catch {
       setTodos(current);
     }
+
+    const updatedStatistics = await getStatisticsByUser(user.uid);
+    setStatistics(updatedStatistics);
   };
 
   return (
