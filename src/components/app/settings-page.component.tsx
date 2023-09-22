@@ -1,19 +1,37 @@
 import { StyleSheet, View } from "react-native";
+import { Button } from "@/ui/button";
+import { Text } from "@/ui/text";
+import { signOut } from "@/backend/authentication";
+import { UserStatistics } from "@/types";
+import { COLORS } from "@/util/colors.const";
 import { Page } from "./page.component";
-import { Button } from "../../ui/button";
-import { Text } from "../../ui/text";
-import { signOut } from "../../backend/authentication";
 
-export function SettingsPage(): JSX.Element {
+type SettingsPageProps = {
+  statistics: UserStatistics;
+};
+
+export function SettingsPage({ statistics }: SettingsPageProps): JSX.Element {
+  const hasStatistics = statistics.totalCompleted > 0;
+
   return (
     <Page title="Settings">
       <View style={styles.intro}>
+        {hasStatistics ? (
+          <View style={styles.statistics}>
+            <Text>
+              {`So far, you have created ${statistics.totalCreated} to-dos and completed ${statistics.totalCompleted}. Way to go!`}
+            </Text>
+          </View>
+        ) : (
+          <Text>
+            After completing your first to-do, we will show you some statistics
+            here.
+          </Text>
+        )}
         <Text>
-          This screen will be updated in the future, so you can change the
-          appearance of the application - get rid of the background or apply a
-          different theme.
+          Please note: this screen will be expanded in the future with more
+          settings and customization.
         </Text>
-        <Text>At this moment, it is only used to sign you out. Sorry.</Text>
       </View>
 
       <Button title="Click here to sign out" onPress={signOut} />
@@ -26,5 +44,11 @@ const styles = StyleSheet.create({
     display: "flex",
     gap: 16,
     marginBottom: 32,
+  },
+  statistics: {
+    borderColor: COLORS.secondary,
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 16,
   },
 });
