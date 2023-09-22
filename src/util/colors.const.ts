@@ -10,4 +10,5 @@ export const COLORS = {
     primary: "#E56420",
     secondary: "#37BADE",
   },
-};
+  error: "#ff2014",
+} as const;
