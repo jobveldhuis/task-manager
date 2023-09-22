@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { LinearGradient as ExpoGradient } from "expo-linear-gradient";
 import { StyleProp, ViewStyle } from "react-native";
-import { COLORS } from "../../util/colors.const";
+import { COLORS } from "@/util/colors.const";
 
 type LinearGradientProps = {
   children: ReactNode;
