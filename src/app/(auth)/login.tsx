@@ -1,31 +1,53 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { router } from "expo-router";
-import { BackgroundView, KeyboardDismissalView } from "../../ui/views";
-import { Text } from "../../ui/text";
-import { Title } from "../../ui/title";
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
-import { Link } from "../../ui/link";
-import { logIn } from "../../backend/authentication";
+import { FirebaseError } from "firebase/app";
+import { BackgroundView, KeyboardDismissalView } from "@/ui/views";
+import { Text } from "@/ui/text";
+import { Title } from "@/ui/title";
+import { Input } from "@/ui/input";
+import { Button } from "@/ui/button";
+import { Link } from "@/ui/link";
+import { logIn } from "@/backend/authentication";
+import { ErrorDialog } from "@/ui/error-dialog/error-dialog.component";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorCode, setErrorCode] = useState<null | string>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePress = async () => {
-    await logIn(email, password);
+    setIsLoading(true);
+    setErrorCode(null);
+
+    try {
+      await logIn(email, password);
+    } catch (error) {
+      // If something other than Firebase throws an error, it must be critical.
+      if (!(error instanceof FirebaseError)) {
+        throw error;
+      }
+
+      setErrorCode(error.code);
+      setPassword("");
+    }
+
+    setIsLoading(false);
   };
+
+  const hasError = errorCode !== null;
 
   return (
     <BackgroundView>
       <KeyboardDismissalView>
         <View style={styles.container}>
           <Title variant="inline">Welcome back,</Title>
-          <Text>
+          <Text style={styles.textContainer}>
             Time to get back on track? All your saved to-dos will be waiting on
             the other side.
           </Text>
+          {hasError && <ErrorDialog code={errorCode} />}
           <View style={styles.inputContainer}>
             <Input
               value={email}
@@ -41,7 +63,11 @@ export default function Login() {
             />
           </View>
           <View style={styles.buttonContainer}>
-            <Button title="Log in" onPress={handlePress} />
+            <Button
+              title="Log in"
+              onPress={handlePress}
+              isLoading={isLoading}
+            />
             <Link
               text="Click here to create an account"
               onPress={() => {
@@ -64,5 +90,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 0,
     gap: 8,
+  },
+  textContainer: {
+    marginBottom: 16,
   },
 });
