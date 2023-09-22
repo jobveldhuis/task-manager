@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { StyleSheet } from "react-native";
-import { LinearGradient } from "../../linear-gradient";
+import { LinearGradient } from "@/ui/linear-gradient";
 
 type BackgroundViewProps = {
   children: ReactNode;
