@@ -36,14 +36,23 @@ export default function Login() {
     setIsLoading(false);
   };
 
+  const handleNavigateToSignUp = () => {
+    setErrorCode(null);
+    setEmail("");
+    setPassword("");
+    router.push("/(auth)/sign-up");
+  };
+
   const hasError = errorCode !== null;
 
   return (
     <BackgroundView>
       <KeyboardDismissalView>
         <View style={styles.container}>
-          <Title variant="inline">Welcome back,</Title>
-          <Text style={styles.textContainer}>
+          <Title style={styles.title} variant="inline">
+            Welcome back,
+          </Title>
+          <Text style={styles.text} variant="light">
             Time to get back on track? All your saved to-dos will be waiting on
             the other side.
           </Text>
@@ -70,9 +79,7 @@ export default function Login() {
             />
             <Link
               text="Click here to create an account"
-              onPress={() => {
-                router.push("/(auth)/sign-up");
-              }}
+              onPress={handleNavigateToSignUp}
             />
           </View>
         </View>
@@ -91,7 +98,10 @@ const styles = StyleSheet.create({
     flex: 0,
     gap: 8,
   },
-  textContainer: {
+  text: {
     marginBottom: 16,
+  },
+  title: {
+    marginBottom: 8,
   },
 });

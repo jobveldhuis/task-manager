@@ -1,4 +1,5 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 import { authentication } from "./authentication.constant";
 
 export async function signUp(
@@ -7,7 +8,10 @@ export async function signUp(
   repeatedPassword: string,
 ) {
   if (password !== repeatedPassword) {
-    throw new Error("Passwords should match.");
+    throw new FirebaseError(
+      "custom/password-mismatch",
+      "The provided passwords to register should match",
+    );
   }
 
   await createUserWithEmailAndPassword(authentication, email, password);

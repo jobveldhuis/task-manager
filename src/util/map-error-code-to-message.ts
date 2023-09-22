@@ -1,5 +1,9 @@
 export function mapErrorCodeToMessage(errorCode: string): string {
   switch (errorCode) {
+    case "custom/password-mismatch":
+      return "The two provided passwords should match.";
+    case "auth/weak-password":
+      return "Your password is too weak. Please choose a password with at least 8 characters.";
     case "auth/wrong-password":
     case "auth/user-not-found":
       return "The e-mail address or password is incorrect. Please try again.";
