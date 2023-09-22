@@ -45,6 +45,25 @@ export function CreateTodoPage({
           onChange: handleDateChange,
         });
 
+  const handleCreatePress = async () => {
+    if (title.length < 3) {
+      return;
+    }
+
+    if (description.length < 3) {
+      return;
+    }
+
+    setIsLoading(true);
+
+    await handleCreate(title, selectedDate, description);
+
+    setTitle("");
+    setSelectedDate(new Date());
+    setDescription("");
+    setIsLoading(false);
+  };
+
   return (
     <>
       {shouldShowAppleDatepicker && (
@@ -75,29 +94,12 @@ export function CreateTodoPage({
             numberOfLines={4}
             maxLength={150}
           />
+          <Button
+            title="Create"
+            isLoading={isLoading}
+            onPress={handleCreatePress}
+          />
         </View>
-        <Button
-          title="Create"
-          isLoading={isLoading}
-          onPress={async () => {
-            if (title.length < 3) {
-              return;
-            }
-
-            if (description.length < 3) {
-              return;
-            }
-
-            setIsLoading(true);
-
-            await handleCreate(title, selectedDate, description);
-
-            setTitle("");
-            setSelectedDate(new Date());
-            setDescription("");
-            setIsLoading(false);
-          }}
-        />
       </Page>
     </>
   );
