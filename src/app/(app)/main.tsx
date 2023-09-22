@@ -89,8 +89,11 @@ export default function Main(): JSX.Element | null {
         isCompleted: true,
       },
     ]);
+
     try {
       await setCompletedStatus(user.uid, id, true);
+      const updatedStatistics = await getStatisticsByUser(user.uid);
+      setStatistics(updatedStatistics);
     } catch {
       setTodos(current);
     }
@@ -112,6 +115,8 @@ export default function Main(): JSX.Element | null {
 
     try {
       await setCompletedStatus(user.uid, id, false);
+      const updatedStatistics = await getStatisticsByUser(user.uid);
+      setStatistics(updatedStatistics);
     } catch {
       setTodos(current);
     }
@@ -132,9 +137,7 @@ export default function Main(): JSX.Element | null {
             expectedCompletionDate: date,
           });
 
-          const updatedTodos = await getTodosByUser(user.uid);
-          setTodos(updatedTodos);
-
+          await fetchTodos();
           paginationRef.current?.scrollTo(1);
         }}
       />

@@ -2,6 +2,10 @@ export function mapErrorCodeToMessage(errorCode: string): string {
   switch (errorCode) {
     case "custom/password-mismatch":
       return "The two provided passwords should match.";
+    case "custom/todo-title-length":
+      return "The title should consist of at least three characters.";
+    case "custom/todo-description-length":
+      return "The description should consist of at least three characters.";
     case "auth/weak-password":
       return "Your password is too weak. Please choose a password with at least 8 characters.";
     case "auth/wrong-password":

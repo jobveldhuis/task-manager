@@ -7,6 +7,7 @@ import { Platform, StyleSheet, View } from "react-native";
 import { useState } from "react";
 import { AppleDatePicker } from "@/ui/date-picker/apple-date-picker.component";
 import { Button } from "@/ui/button";
+import { ErrorDialog } from "@/ui/error-dialog/error-dialog.component";
 import { Page } from "./page.component";
 
 type CreateTodoPageProps = {
@@ -17,6 +18,7 @@ export function CreateTodoPage({
   onCreate: handleCreate,
 }: CreateTodoPageProps): JSX.Element {
   const [title, setTitle] = useState("");
+  const [errorCode, setErrorCode] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -46,15 +48,20 @@ export function CreateTodoPage({
         });
 
   const handleCreatePress = async () => {
+    setIsLoading(true);
+    setErrorCode(null);
+
     if (title.length < 3) {
+      setErrorCode("custom/todo-title-length");
+      setIsLoading(false);
       return;
     }
 
     if (description.length < 3) {
+      setErrorCode("custom/todo-description-length");
+      setIsLoading(false);
       return;
     }
-
-    setIsLoading(true);
 
     await handleCreate(title, selectedDate, description);
 
@@ -63,6 +70,8 @@ export function CreateTodoPage({
     setDescription("");
     setIsLoading(false);
   };
+
+  const hasError = errorCode !== null;
 
   return (
     <>
@@ -76,6 +85,7 @@ export function CreateTodoPage({
       )}
       <Page title="Add new to-do list item">
         <View style={styles.container}>
+          {hasError && <ErrorDialog code={errorCode} />}
           <Input
             value={title}
             type="text"
