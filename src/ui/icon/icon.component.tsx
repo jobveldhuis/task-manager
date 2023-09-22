@@ -1,6 +1,6 @@
 import ExpoIcon from "@expo/vector-icons/FontAwesome5";
 import { StyleSheet } from "react-native";
-import { COLORS } from "../../util/colors.const";
+import { COLORS } from "@/util/colors.const";
 
 export type IconName =
   | "calendar-alt"
@@ -11,7 +11,8 @@ export type IconName =
   | "flag-checkered"
   | "list"
   | "edit"
-  | "long-arrow-alt-right";
+  | "long-arrow-alt-right"
+  | "exclamation-triangle";
 
 type IconProps = {
   name: IconName;
