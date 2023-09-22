@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import { router } from "expo-router";
 import { FirebaseError } from "firebase/app";
 import { BackgroundView, KeyboardDismissalView } from "@/ui/views";
@@ -10,6 +10,7 @@ import { Button } from "@/ui/button";
 import { Link } from "@/ui/link";
 import { logIn } from "@/backend/authentication";
 import { ErrorDialog } from "@/ui/error-dialog/error-dialog.component";
+import { resetPassword } from "@/backend/authentication/reset-password";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,30 @@ export default function Login() {
     router.push("/(auth)/sign-up");
   };
 
+  const handleResetPassword = async () => {
+    setErrorCode(null);
+    setPassword("");
+
+    try {
+      await resetPassword(email);
+    } catch (error) {
+      // If something other than Firebase throws an error, it must be critical.
+      if (!(error instanceof FirebaseError)) {
+        throw error;
+      }
+
+      if (error.code !== "auth/user-not-found") {
+        setErrorCode(error.code);
+        return;
+      }
+    } finally {
+      Alert.alert(
+        "You might have gotten mail!",
+        "If you provided a valid email address registered to a user, we have just sent you an email to reset your password. Please follow the link and instructions in the email.",
+      );
+    }
+  };
+
   const hasError = errorCode !== null;
 
   return (
@@ -74,6 +99,11 @@ export default function Login() {
               title="Log in"
               onPress={handlePress}
               isLoading={isLoading}
+            />
+            <Link
+              shouldHideArrow
+              text="Forgot your password?"
+              onPress={handleResetPassword}
             />
             <Link
               text="Click here to create an account"

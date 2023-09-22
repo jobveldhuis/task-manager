@@ -11,6 +11,7 @@ export function mapErrorCodeToMessage(errorCode: string): string {
     case "auth/wrong-password":
     case "auth/user-not-found":
       return "The e-mail address or password is incorrect. Please try again.";
+    case "auth/missing-email":
     case "auth/invalid-email":
       return "Please provide a valid e-mail address.";
     case "auth/missing-password":
