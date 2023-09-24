@@ -6,6 +6,7 @@ import { Title } from "@/ui/title";
 import { Text } from "@/ui/text";
 import { Rating } from "@/types/rating.type";
 import { setRating } from "@/backend/database/set-rating";
+import { OverviewModal } from "@/components/todos/overview-modal.component";
 import { Page } from "./page.component";
 import { TodoItem } from "../todos/todo-item.component";
 import { FeedbackModal } from "../todos/feedback-modal.component";
@@ -17,6 +18,7 @@ type TodoPageProps = {
   user: User;
   markTodoCompleted: (id: string) => Promise<void>;
   markTodoUnfinished: (id: string) => Promise<void>;
+  deleteTodo: (id: string) => Promise<void>;
 };
 
 export function TodoPage({
@@ -26,23 +28,56 @@ export function TodoPage({
   user,
   markTodoCompleted,
   markTodoUnfinished,
+  deleteTodo,
 }: TodoPageProps): JSX.Element {
   const [completedTodo, setCompletedTodo] = useState<Todo | null>(null);
+  const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
+
   const sortedTodos = useMemo(
     () => todos.sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted)),
     [todos],
   );
 
-  const shouldShowModal = completedTodo !== null;
+  const shouldShowFeedbackModal = completedTodo !== null;
+  const shouldShowOverviewModal =
+    shouldShowFeedbackModal === false && selectedTodo !== null;
+
+  const handleTodoItemPress = async (item: Todo) => {
+    if (item.isCompleted) {
+      await markTodoUnfinished(item.id);
+    } else {
+      setCompletedTodo(item);
+      await markTodoCompleted(item.id);
+    }
+  };
+
+  const handleTodoItemLongPress = (item: Todo) => {
+    setSelectedTodo(item);
+  };
 
   return (
     <>
-      {shouldShowModal && (
+      {shouldShowFeedbackModal && (
         <FeedbackModal
           todo={completedTodo}
           onFeedbackClick={async (rating: Rating) => {
             await setRating(rating, user.uid, completedTodo.id);
             setCompletedTodo(null);
+          }}
+        />
+      )}
+
+      {shouldShowOverviewModal && (
+        <OverviewModal
+          todo={selectedTodo}
+          onBackgroundPress={() => setSelectedTodo(null)}
+          onChangeStatusPress={async () => {
+            setSelectedTodo(null);
+            await handleTodoItemPress(selectedTodo);
+          }}
+          onDeletePress={async () => {
+            setSelectedTodo(null);
+            await deleteTodo(selectedTodo.id);
           }}
         />
       )}
@@ -60,14 +95,8 @@ export function TodoPage({
                   <TodoItem
                     data={item}
                     style={styles.item}
-                    onPress={async () => {
-                      if (item.isCompleted) {
-                        await markTodoUnfinished(item.id);
-                      } else {
-                        setCompletedTodo(item);
-                        await markTodoCompleted(item.id);
-                      }
-                    }}
+                    onPress={() => handleTodoItemPress(item)}
+                    onLongPress={() => handleTodoItemLongPress(item)}
                   />
                 )}
                 keyExtractor={(item) => item.id}
