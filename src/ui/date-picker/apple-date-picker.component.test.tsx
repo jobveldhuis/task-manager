@@ -9,9 +9,9 @@ describe("AppleDatePicker", () => {
   const picker = (
     <AppleDatePicker
       onBackgroundPress={handleBackgroundPress}
-      value={new Date(1695566021)}
+      value={new Date(1695566021000)}
       onChange={handleChange}
-      minimumDate={new Date(1695566020)}
+      minimumDate={new Date(1695566020000)}
     />
   );
 
@@ -29,7 +29,7 @@ describe("AppleDatePicker", () => {
     fireEvent(renderedPicker, "onChange", {
       type: "set",
       nativeEvent: {
-        timestamp: new Date(1695566029).getTime(),
+        timestamp: new Date(1695566029000).getTime(),
         utcOffset: 0,
       },
     });
@@ -38,7 +38,7 @@ describe("AppleDatePicker", () => {
     expect(handleChange).toHaveBeenCalledWith({
       type: "set",
       nativeEvent: {
-        timestamp: new Date(1695566029).getTime(),
+        timestamp: new Date(1695566029000).getTime(),
         utcOffset: 0,
       },
     });

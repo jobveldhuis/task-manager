@@ -53,10 +53,10 @@ exports[`AppleDatePicker should match snapshot 1`] = `
     }
   >
     <RNDateTimePicker
-      date={1695566021}
+      date={1695566021000}
       displayIOS="inline"
       enabled={true}
-      minimumDate={1695566020}
+      minimumDate={1695566020000}
       mode="date"
       onChange={[Function]}
       onPickerDismiss={[Function]}
