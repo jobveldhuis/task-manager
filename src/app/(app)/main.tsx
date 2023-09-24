@@ -5,6 +5,7 @@ import { useAuthentication } from "@/backend/authentication";
 import { hasSeenTutorial } from "@/util/has-seen-tutorial";
 import {
   createTodo,
+  deleteTodo,
   getTodosByUser,
   setCompletedStatus,
 } from "@/backend/database";
@@ -124,6 +125,17 @@ export default function Main(): JSX.Element | null {
     setStatistics(updatedStatistics);
   };
 
+  const doDeleteTodo = async (id: string) => {
+    const current = todos;
+    setTodos([...todos.filter((item) => item.id !== id)]);
+
+    try {
+      await deleteTodo(user.uid, id);
+    } catch {
+      setTodos(current);
+    }
+  };
+
   return (
     <Swiper
       loop={false}
@@ -150,6 +162,7 @@ export default function Main(): JSX.Element | null {
         user={user}
         markTodoCompleted={markTodoCompleted}
         markTodoUnfinished={markTodoUnfinished}
+        deleteTodo={doDeleteTodo}
       />
       <SettingsPage statistics={statistics} />
     </Swiper>
