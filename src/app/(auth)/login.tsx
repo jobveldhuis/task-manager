@@ -60,12 +60,12 @@ export default function Login() {
         setErrorCode(error.code);
         return;
       }
-    } finally {
-      Alert.alert(
-        "You might have gotten mail!",
-        "If you provided a valid email address registered to a user, we have just sent you an email to reset your password. Please follow the link and instructions in the email.",
-      );
     }
+
+    Alert.alert(
+      "You might have gotten mail!",
+      "If you provided a valid email address registered to a user, we have just sent you an email to reset your password. Please follow the link and instructions in the email.",
+    );
   };
 
   const hasError = errorCode !== null;
