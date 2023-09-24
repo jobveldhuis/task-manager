@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react-native";
+import { fireEvent, render, screen } from "@testing-library/react-native";
 import { Icon } from "@/ui/icon";
 import { Link } from "./link.component";
 
@@ -36,5 +36,14 @@ describe("Link", () => {
 
     const icon = queryByType(Icon);
     expect(icon).toBeFalsy();
+  });
+
+  it("should call the onPress on press", () => {
+    const { UNSAFE_getByType: getByType } = render(component);
+    const link = getByType(Link);
+    expect(link).toBeTruthy();
+
+    fireEvent(link, "press");
+    expect(handlePress).toBeCalled();
   });
 });
