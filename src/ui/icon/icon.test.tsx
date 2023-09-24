@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react-native";
-import { Icon } from "./index";
+import { Icon } from "./icon.component";
 
 describe("Icon", () => {
   it("should match snapshot", async () => {
