@@ -6,18 +6,21 @@ type CheckboxProps = {
   isChecked: boolean;
   onPress: (event: GestureResponderEvent) => void;
   onLongPress: (event: GestureResponderEvent) => void;
+  testID?: string;
 };
 
 export function Checkbox({
   isChecked,
   onPress: handlePress,
   onLongPress: handleLongPress,
+  testID,
 }: CheckboxProps): JSX.Element {
   return (
     <Pressable
       style={[styles.base, isChecked && styles.checked]}
       onPress={handlePress}
       onLongPress={handleLongPress}
+      testID={testID}
     >
       {isChecked && <Icon name="check" variant="inverse" />}
     </Pressable>
