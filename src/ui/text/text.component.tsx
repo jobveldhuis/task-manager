@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   link: {
-    color: COLORS.secondary,
+    color: COLORS.primary,
     fontWeight: "bold",
   },
   menu: {

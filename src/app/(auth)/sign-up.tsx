@@ -81,6 +81,7 @@ export default function SignUp() {
               title="Sign up"
               onPress={handlePress}
               isLoading={isLoading}
+              style={styles.button}
             />
             <Link
               text="Or, click here to login"
@@ -101,6 +102,9 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   inputContainer: { flex: 0, marginVertical: 16, gap: 16 },
+  button: {
+    marginBottom: 8,
+  },
   buttonContainer: {
     flex: 0,
     gap: 8,

@@ -99,6 +99,7 @@ export default function Login() {
               title="Log in"
               onPress={handlePress}
               isLoading={isLoading}
+              style={styles.button}
             />
             <Link
               shouldHideArrow
@@ -125,6 +126,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 0,
     gap: 8,
+  },
+  button: {
+    marginBottom: 8,
   },
   text: {
     marginBottom: 16,
