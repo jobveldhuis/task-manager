@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorDialog should match snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#ff2014",
+      "borderRadius": 6,
+      "display": "flex",
+      "flexDirection": "row",
+      "gap": 16,
+      "padding": 8,
+      "position": "relative",
+      "textOverflow": "hidden",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignSelf": "flex-start",
+        "opacity": 0.5,
+        "position": "relative",
+        "top": 2,
+      }
+    }
+  >
+    <Text />
+  </View>
+  <View
+    style={
+      {
+        "maxWidth": "90%",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#000C49",
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+          {
+            "color": "#fff",
+            "opacity": 0.75,
+          },
+          undefined,
+        ]
+      }
+    >
+      Please provide a valid e-mail address.
+    </Text>
+  </View>
+</View>
+`;
