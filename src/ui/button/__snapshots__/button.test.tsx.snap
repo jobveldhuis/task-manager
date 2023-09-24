@@ -46,11 +46,14 @@ exports[`Button should match snapshot 1`] = `
     style={
       [
         {
-          "backgroundColor": "#343C64",
           "borderRadius": 20,
           "padding": 10,
           "textAlign": "center",
           "width": "100%",
+        },
+        {
+          "backgroundColor": "#343C64",
+          "color": "#fff",
         },
         undefined,
       ]
@@ -60,6 +63,7 @@ exports[`Button should match snapshot 1`] = `
       style={
         [
           {
+            "color": "#000C49",
             "fontSize": 16,
             "fontWeight": "600",
           },

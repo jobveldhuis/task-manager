@@ -18,11 +18,18 @@ exports[`Title should match snapshots for each variant with icon 1`] = `
   <Text />
   <Text
     style={
-      {
-        "color": "#000C49",
-        "fontSize": 24,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet
@@ -48,11 +55,16 @@ exports[`Title should match snapshots for each variant with icon 2`] = `
   <Text />
   <Text
     style={
-      {
-        "color": "#000",
-        "fontSize": 16,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "fontSize": 16,
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet
@@ -78,11 +90,18 @@ exports[`Title should match snapshots for each variant with icon 3`] = `
   <Text />
   <Text
     style={
-      {
-        "color": "#000",
-        "fontSize": 14,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "color": "#000",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet
@@ -107,11 +126,18 @@ exports[`Title should match snapshots for each variant without icon 1`] = `
 >
   <Text
     style={
-      {
-        "color": "#000C49",
-        "fontSize": 24,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet
@@ -136,11 +162,16 @@ exports[`Title should match snapshots for each variant without icon 2`] = `
 >
   <Text
     style={
-      {
-        "color": "#000",
-        "fontSize": 16,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "fontSize": 16,
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet
@@ -165,11 +196,18 @@ exports[`Title should match snapshots for each variant without icon 3`] = `
 >
   <Text
     style={
-      {
-        "color": "#000",
-        "fontSize": 14,
-        "fontWeight": "bold",
-      }
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 24,
+          "fontWeight": "bold",
+        },
+        {
+          "color": "#000",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        },
+      ]
     }
   >
     Lorem ipsum dolor sit amet

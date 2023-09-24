@@ -5,11 +5,11 @@ exports[`Text should match snapshots for each variant 1`] = `
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
       {
-        "color": "#000",
         "lineHeight": 22,
       },
       undefined,
@@ -25,6 +25,28 @@ exports[`Text should match snapshots for each variant 2`] = `
   style={
     [
       {
+        "color": "#000C49",
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "textDecorationLine": "line-through",
+        "textDecorationStyle": "solid",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 3`] = `
+<Text
+  style={
+    [
+      {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
@@ -41,16 +63,39 @@ exports[`Text should match snapshots for each variant 2`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 3`] = `
+exports[`Text should match snapshots for each variant 4`] = `
 <Text
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
       {
-        "color": "#000",
+        "color": "#000C49",
+        "fontWeight": "bold",
+        "textAlign": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 5`] = `
+<Text
+  style={
+    [
+      {
+        "color": "#000C49",
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#000C49",
         "fontWeight": "bold",
       },
       undefined,
@@ -61,11 +106,12 @@ exports[`Text should match snapshots for each variant 3`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 4`] = `
+exports[`Text should match snapshots for each variant 6`] = `
 <Text
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
@@ -82,11 +128,12 @@ exports[`Text should match snapshots for each variant 4`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 5`] = `
+exports[`Text should match snapshots for each variant 7`] = `
 <Text
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
@@ -103,11 +150,12 @@ exports[`Text should match snapshots for each variant 5`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 6`] = `
+exports[`Text should match snapshots for each variant 8`] = `
 <Text
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
@@ -123,16 +171,38 @@ exports[`Text should match snapshots for each variant 6`] = `
 </Text>
 `;
 
-exports[`Text should match snapshots for each variant 7`] = `
+exports[`Text should match snapshots for each variant 9`] = `
 <Text
   style={
     [
       {
+        "color": "#000C49",
         "fontSize": 16,
         "fontWeight": "600",
       },
       {
         "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
+>
+  Lorem ipsum dolor sit amet
+</Text>
+`;
+
+exports[`Text should match snapshots for each variant 10`] = `
+<Text
+  style={
+    [
+      {
+        "color": "#000C49",
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "color": "#fff",
+        "opacity": 0.75,
       },
       undefined,
     ]

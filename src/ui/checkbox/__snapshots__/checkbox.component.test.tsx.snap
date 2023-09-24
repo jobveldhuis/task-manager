@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should match snapshot 1`] = `
+exports[`Checkbox should match snapshot 1`] = `
 <View
   accessibilityState={
     {
@@ -34,45 +34,21 @@ exports[`Button should match snapshot 1`] = `
   style={
     [
       {
-        "width": "100%",
+        "alignItems": "center",
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 2,
+        "height": 28,
+        "justifyContent": "center",
+        "width": 28,
       },
       {
-        "opacity": 1,
+        "backgroundColor": "#343C64",
+        "borderWidth": 0,
       },
     ]
   }
 >
-  <View
-    style={
-      [
-        {
-          "backgroundColor": "#343C64",
-          "borderRadius": 20,
-          "padding": 10,
-          "textAlign": "center",
-          "width": "100%",
-        },
-        undefined,
-      ]
-    }
-  >
-    <Text
-      style={
-        [
-          {
-            "fontSize": 16,
-          },
-          {
-            "color": "#fff",
-            "fontWeight": "bold",
-            "textAlign": "center",
-          },
-          undefined,
-        ]
-      }
-    >
-      Test me out!
-    </Text>
-  </View>
+  <Text />
 </View>
 `;
