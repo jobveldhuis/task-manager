@@ -1,20 +1,23 @@
 import { GestureResponderEvent, Pressable, StyleSheet } from "react-native";
+import { COLORS } from "@/util/colors.const";
 import { Icon } from "../icon";
-import { COLORS } from "../../util/colors.const";
 
 type CheckboxProps = {
   isChecked: boolean;
   onPress: (event: GestureResponderEvent) => void;
+  onLongPress: (event: GestureResponderEvent) => void;
 };
 
 export function Checkbox({
   isChecked,
   onPress: handlePress,
+  onLongPress: handleLongPress,
 }: CheckboxProps): JSX.Element {
   return (
     <Pressable
       style={[styles.base, isChecked && styles.checked]}
       onPress={handlePress}
+      onLongPress={handleLongPress}
     >
       {isChecked && <Icon name="check" variant="inverse" />}
     </Pressable>
