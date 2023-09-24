@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppleDatePicker should match snapshot 1`] = `
+<View
+  onTouchEnd={[MockFunction]}
+  style={
+    [
+      {
+        "backgroundColor": "transparent",
+      },
+      {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "display": "flex",
+        "height": "100%",
+        "justifyContent": "center",
+        "paddingHorizontal": 32,
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 999,
+      },
+    ]
+  }
+>
+  <ViewManagerAdapter_ExpoBlurView
+    blurReductionFactor={4}
+    intensity={20}
+    style={
+      {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+    tint="light"
+  />
+  <View
+    onStartShouldSetResponder={[Function]}
+    onTouchEnd={[Function]}
+    style={
+      {
+        "backgroundColor": "#fff",
+        "borderRadius": 16,
+        "paddingBottom": 32,
+        "paddingHorizontal": 16,
+        "paddingTop": 24,
+        "position": "absolute",
+        "top": "25%",
+        "width": "100%",
+      }
+    }
+  >
+    <RNDateTimePicker
+      date={1695566021}
+      displayIOS="inline"
+      enabled={true}
+      minimumDate={1695566020}
+      mode="date"
+      onChange={[Function]}
+      onPickerDismiss={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      themeVariant="light"
+    />
+  </View>
+</View>
+`;

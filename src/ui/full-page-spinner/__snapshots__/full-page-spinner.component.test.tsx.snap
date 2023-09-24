@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullPageSpinner should match snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "justifyContent": "flex-start",
+      "minHeight": "100%",
+      "minWidth": "100%",
+      "paddingTop": 16,
+    }
+  }
+>
+  <ActivityIndicator
+    color="#000"
+    size="large"
+  />
+</View>
+`;

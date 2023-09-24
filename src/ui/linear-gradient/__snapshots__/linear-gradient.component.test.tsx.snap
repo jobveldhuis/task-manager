@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinearGradient should match snapshot 1`] = `
+<ViewManagerAdapter_ExpoLinearGradient
+  colors={
+    [
+      4293223456,
+      4281842398,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "color": "#000C49",
+          "fontSize": 16,
+          "fontWeight": "600",
+        },
+        {
+          "lineHeight": 22,
+        },
+        undefined,
+      ]
+    }
+  >
+    Test
+  </Text>
+</ViewManagerAdapter_ExpoLinearGradient>
+`;
