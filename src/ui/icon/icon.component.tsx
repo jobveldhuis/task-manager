@@ -22,7 +22,13 @@ type IconProps = {
 const variants = ["primary", "inverse"] as const;
 
 export function Icon({ name, variant = "primary" }: IconProps): JSX.Element {
-  return <ExpoIcon name={name} style={[styles.base, styles[variant]]} />;
+  return (
+    <ExpoIcon
+      name={name}
+      style={[styles.base, styles[variant]]}
+      testID={`icon-${name}`}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
