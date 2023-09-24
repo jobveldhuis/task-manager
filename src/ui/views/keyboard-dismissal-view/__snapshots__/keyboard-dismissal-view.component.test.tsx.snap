@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyboardDismissalView should match snapshot 1`] = `
+<Text
+  style={
+    [
+      {
+        "color": "#000C49",
+        "fontSize": 16,
+        "fontWeight": "600",
+      },
+      {
+        "lineHeight": 22,
+      },
+      undefined,
+    ]
+  }
+>
+  Test
+</Text>
+`;

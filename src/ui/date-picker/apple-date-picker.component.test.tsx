@@ -24,9 +24,8 @@ describe("AppleDatePicker", () => {
   });
 
   it("should fire the onChange event after clicking on a date", () => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { UNSAFE_getByType } = render(picker);
-    const renderedPicker = UNSAFE_getByType(DateTimePicker);
+    const { UNSAFE_getByType: getByType } = render(picker);
+    const renderedPicker = getByType(DateTimePicker);
     fireEvent(renderedPicker, "onChange", {
       type: "set",
       nativeEvent: {
@@ -46,9 +45,8 @@ describe("AppleDatePicker", () => {
   });
 
   it("should fire the onBackgroundPress after clicking the blurred background", () => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { UNSAFE_getByType } = render(picker);
-    const background = UNSAFE_getByType(BlurView);
+    const { UNSAFE_getByType: getByType } = render(picker);
+    const background = getByType(BlurView);
 
     fireEvent(background, "touchEnd");
     expect(handleBackgroundPress).toBeCalled();
