@@ -11,6 +11,7 @@ export const variants = [
   "paragraph",
   "strikethrough",
   "button",
+  "buttonOutline",
   "link",
   "menu",
   "menuSelected",
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   button: {
-    color: COLORS.button.inverse,
+    color: COLORS.inverse,
     textAlign: "center",
     fontWeight: "bold",
   },
@@ -75,5 +76,10 @@ const styles = StyleSheet.create({
   error: {
     color: COLORS.inverse,
     opacity: 0.75,
+  },
+  buttonOutline: {
+    color: COLORS.primary,
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });

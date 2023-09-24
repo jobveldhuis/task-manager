@@ -5,6 +5,7 @@ export const COLORS = {
   button: {
     primary: "#343C64",
     inverse: "#fff",
+    red: "#ff2014",
   },
   backgroundGradient: {
     primary: "#E56420",
