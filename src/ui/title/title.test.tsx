@@ -31,13 +31,13 @@ describe("Title", () => {
     expect(screen.getByText("This should not have an icon")).toBeTruthy();
 
     // This container only exists when we do render an icon.
-    expect(screen.queryByTestId("title-container")).toBeFalsy();
+    expect(screen.queryByTestId("icon")).toBeFalsy();
   });
 
   it("should render with icon when specified in props", () => {
     render(<Title icon="calendar-alt">This should have an icon</Title>);
 
     // This container only exists when we do render an icon.
-    expect(screen.getByTestId("title-container")).toBeTruthy();
+    expect(screen.getByTestId("icon-calendar-alt")).toBeTruthy();
   });
 });
