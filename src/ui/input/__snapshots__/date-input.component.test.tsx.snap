@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInput should match snapshot for a date input 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+>
+  <View
+    style={
+      {
+        "borderColor": "#000",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#000C49",
+            "fontSize": 16,
+            "fontWeight": "600",
+          },
+          {
+            "fontWeight": "normal",
+          },
+          undefined,
+        ]
+      }
+    >
+      24 September 2023
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`DateInput should match snapshot for a new password input 1`] = `
+<View>
+  <TextInput
+    autoComplete="new-password"
+    autoCorrect={false}
+    inputMode="text"
+    onChangeText={[Function]}
+    secureTextEntry={true}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="VerySecret123!"
+  />
+</View>
+`;
+
+exports[`DateInput should match snapshot for a password input 1`] = `
+<View>
+  <TextInput
+    autoComplete="current-password"
+    autoCorrect={false}
+    inputMode="text"
+    onChangeText={[Function]}
+    secureTextEntry={true}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="VerySecret123!"
+  />
+</View>
+`;
+
+exports[`DateInput should match snapshot for an email input 1`] = `
+<View>
+  <TextInput
+    autoComplete="email"
+    autoCorrect={false}
+    inputMode="email"
+    onChangeText={[Function]}
+    secureTextEntry={false}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="foo@bar.com"
+  />
+</View>
+`;
+
+exports[`Input should match snapshot for a new password input 1`] = `
+<View>
+  <TextInput
+    autoComplete="new-password"
+    autoCorrect={false}
+    inputMode="text"
+    onChangeText={[Function]}
+    secureTextEntry={true}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="VerySecret123!"
+  />
+</View>
+`;
+
+exports[`Input should match snapshot for a password input 1`] = `
+<View>
+  <TextInput
+    autoComplete="current-password"
+    autoCorrect={false}
+    inputMode="text"
+    onChangeText={[Function]}
+    secureTextEntry={true}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="VerySecret123!"
+  />
+</View>
+`;
+
+exports[`Input should match snapshot for a text input 1`] = `
+<View>
+  <TextInput
+    autoComplete="off"
+    autoCorrect={false}
+    inputMode="text"
+    onChangeText={[Function]}
+    secureTextEntry={false}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="Test"
+  />
+</View>
+`;
+
+exports[`Input should match snapshot for an email input 1`] = `
+<View>
+  <TextInput
+    autoComplete="email"
+    autoCorrect={false}
+    inputMode="email"
+    onChangeText={[Function]}
+    secureTextEntry={false}
+    style={
+      {
+        "borderColor": "#000C49",
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": "#000C49",
+        "fontSize": 16,
+        "paddingHorizontal": 4,
+        "paddingVertical": 8,
+        "width": "100%",
+      }
+    }
+    value="foo@bar.com"
+  />
+</View>
+`;
